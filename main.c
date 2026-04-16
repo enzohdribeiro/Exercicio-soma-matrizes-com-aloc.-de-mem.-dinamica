@@ -11,8 +11,16 @@ int** soma3(int** m1, int** m2, int** m3, int lin, int col){
     int i,j;
     
    int** matrizResultante = (int**)malloc(sizeof(int*)*lin);
+   if (matrizResultante == NULL) {
+       printf("Mem Error\n");
+       exit(1); // Encerra o programa com código de erro
+    }
    for(i = 0; i<lin; i++){
        matrizResultante[i] = (int*)malloc(sizeof(int)*col);
+       if (matrizResultante[i] == NULL) {
+        printf("Mem Error\n");
+        exit(1); // Encerra o programa com código de erro
+    }
    }
    
    for(i=0; i<lin; i++){
@@ -26,9 +34,17 @@ int** soma3(int** m1, int** m2, int** m3, int lin, int col){
 
 int** alocaMatriz(int lin, int col){
     int** matriz = (int**)malloc(sizeof(int*)*lin);
+    if (matriz == NULL) {
+        printf("Mem Error\n");
+        exit(1); // Encerra o programa com código de erro
+    }
     int i;
     for(i = 0; i<lin; i++){
        matriz[i] = (int*)malloc(sizeof(int)*col);
+       if (matriz[i] == NULL) {
+         printf("Mem Error\n");
+         exit(1); // Encerra o programa com código de erro
+    }
    }
     return(matriz);
 }
