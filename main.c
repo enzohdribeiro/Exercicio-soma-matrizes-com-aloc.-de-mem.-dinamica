@@ -43,7 +43,13 @@ void criaMatriz(int** m,int lin, int col, int n){
     }
 }
    
-
+void liberaMatriz(int**m, int lin){
+    int i;
+    for(i=0; i<lin; i++){
+        free(m[i]);
+    }
+    free(m);
+}
 
 int main(){
     int lin, col, i, j;
@@ -92,6 +98,11 @@ int main(){
         }
         printf("\n");
     }
+    
+    liberaMatriz(m1, lin);
+    liberaMatriz(m2, lin);
+    liberaMatriz(m3, lin);
+    liberaMatriz(resultado, lin);
     
     return 0;
 }
